@@ -23,10 +23,10 @@ function checkTie() {
 function handleClick(index) {
   if (board[index] !== "" || !gameActive) return;
   board[index] = currentPlayer;
-  document.getElementById(index).textContent = currentPlayer;
+  document.getElementById(index).innerHTML = '<img src="' + (currentPlayer === "X" ? "x.png" : "o.png") + '" style="width:80px;height:80px;">';
 
   if (checkWinner()) {
-    document.getElementById("status").innerHTML = '<img src="' + (currentPlayer === "X" ? "x.png" : "o.png" + '" style="width:80px;height:80px;">';
+    document.getElementById("status").textContent = "Player " + currentPlayer + " wins! 🎉";
     gameActive = false;
     return;
   }
