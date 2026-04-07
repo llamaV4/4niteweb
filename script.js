@@ -26,7 +26,7 @@ function handleClick(index) {
   document.getElementById(index).innerHTML = '<img src="' + (currentPlayer === "X" ? "x.png" : "o.png") + '" style="width:80px;height:80px;">';
 
   if (checkWinner()) {
-    document.getElementById("status").textContent = "Player " + currentPlayer + " wins! 🎉";
+    document.getElementById("status").textContent = "Player " + currentPlayer + " wins!";
     gameActive = false;
     return;
   }
