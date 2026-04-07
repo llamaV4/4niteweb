@@ -26,7 +26,22 @@ function handleClick(index) {
   document.getElementById(index).textContent = currentPlayer;
 
   if (checkWinner()) {
-    document.querySelectorAll(".cell").forEach((cell, index) => {
+    document.getElementById("status").textContent = "Player " + currentPlayer + " wins!";
+    gameActive = false;
+    return;
+  }
+
+  if (checkTie()) {
+    document.getElementById("status").textContent = "It's a tie!";
+    gameActive = false;
+    return;
+  }
+
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  document.getElementById("status").textContent = "Player " + currentPlayer + "'s turn";
+}
+
+document.querySelectorAll(".cell").forEach((cell, index) => {
   cell.addEventListener("click", () => handleClick(index));
 });
 
