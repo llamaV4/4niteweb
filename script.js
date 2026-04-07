@@ -26,7 +26,7 @@ function handleClick(index) {
   document.getElementById(index).textContent = currentPlayer;
 
   if (checkWinner()) {
-    document.getElementById("status").textContent = "Player " + currentPlayer + " wins!";
+    document.getElementById("status").innerHTML = '<img src="' + (currentPlayer === "X" ? "x.png" : "o.png" + '" style="width:80px;height:80px;">';
     gameActive = false;
     return;
   }
@@ -49,6 +49,6 @@ document.getElementById("restart").addEventListener("click", () => {
   board = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = "X";
   gameActive = true;
-  document.querySelectorAll(".cell").forEach(cell => cell.textContent = "");
+  document.querySelectorAll(".cell").forEach(cell => cell.innerHTML = "");
   document.getElementById("status").textContent = "Player X's turn";
 });
